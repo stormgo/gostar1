@@ -19,7 +19,7 @@ func ExampleScrape() {
   }
 
   // Find the review items
-  doc.Find("table").Each(func(i int, s *goquery.Selection) {
+  doc.Find("table.table.table-condensed").Each(func(i int, s *goquery.Selection) {
     // For each item found, get the band and title
     band := s.Find("a").Text()
     //title := s.Find("i").Text()
