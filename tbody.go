@@ -15,7 +15,7 @@ func getRow(selection *goquery.Selection) {
     selection1 := getSelection(doc,"td")
 
 	path := ""
-	//synopsis := ""
+	synopsis := ""
 	selection1.Each(func(i int, s *goquery.Selection) {
 		if i == 0 {
 			selection2 := getSelection(doc,"a")
@@ -23,7 +23,12 @@ func getRow(selection *goquery.Selection) {
       		fmt.Println("column ",i, " ",path)
 		}
 		if i == 1 {
-			fmt.Println("column ",i)
+			synopsis = s.Text()
+			if synopsis != "" {
+			 	fmt.Println("column ",i, " ",synopsis)
+			} else {
+				fmt.Println("column ",i)
+			}
 		}
     })
 }
