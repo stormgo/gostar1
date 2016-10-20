@@ -15,9 +15,13 @@ func getRow(selection *goquery.Selection) {
     selection1 := getSelection(doc,"td")
 
 	selection1.Each(func(i int, s *goquery.Selection) {
-      	fmt.Println("column ",i)
+		if i == 0 {
+      		fmt.Println("column ",i)
+		}
+		if i == 1 {
+			fmt.Println("column ",i)
+		}
     })
-
 }
 
 func getSelection(doc *goquery.Document, selector string) (s *goquery.Selection) {
