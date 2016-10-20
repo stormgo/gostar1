@@ -7,6 +7,19 @@ import (
 	"github.com/PuerkitoBio/goquery"
 )
 
+func getRow(selection *goquery.Selection) {
+
+	node := selection.Get(0)
+
+	doc := goquery.NewDocumentFromNode(node)
+    selection1 := getSelection(doc,"td")
+
+	selection1.Each(func(i int, s *goquery.Selection) {
+      	fmt.Println("column ",i)
+    })
+
+}
+
 func getSelection(doc *goquery.Document, selector string) (s *goquery.Selection) {
 	s = doc.Find(selector)
 	return s
@@ -50,7 +63,8 @@ func goq1() {
 	//synopsis := ""
 
     selection.Each(func(i int, s *goquery.Selection) {
-      fmt.Println(i)
+      	fmt.Println("row ",i)
+		getRow(s)
     })
 }
 
