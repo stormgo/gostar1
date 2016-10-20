@@ -38,7 +38,13 @@ func goq1() {
 	}
 
 	doc = goquery.NewDocumentFromNode(node)
-    selection = getSelection(doc,"td")
+    selection = getSelection(doc,"tr")
+
+	// So now you want to create your map and pass the map into
+	// the function which builds it up with each td
+	// namely the path and the synopsis
+
+	// pass in the selection and get back the map
 
     //path := ""
 	//synopsis := ""
