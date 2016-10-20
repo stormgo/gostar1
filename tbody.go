@@ -14,9 +14,12 @@ func getRow(selection *goquery.Selection) {
 	doc := goquery.NewDocumentFromNode(node)
     selection1 := getSelection(doc,"td")
 
+	github := ""
 	selection1.Each(func(i int, s *goquery.Selection) {
 		if i == 0 {
-      		fmt.Println("column ",i)
+			selection2 := getSelection(doc,"a")
+			github, _ = selection2.Attr("href")
+      		fmt.Println("column ",i, " ",github)
 		}
 		if i == 1 {
 			fmt.Println("column ",i)
