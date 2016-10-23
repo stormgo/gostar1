@@ -6,7 +6,6 @@ import (
 	"log"
 	"net/http"
 	"time"
-	//"net/url"
 )
 
 type Github struct {
@@ -121,15 +120,9 @@ type Github struct {
 
 func main() {
 
-	//phone := "14158586273"
-
-	// QueryEscape escapes the phone string so
-	// it can be safely placed inside a URL query
-	//safePhone := url.QueryEscape(phone)
-	//url := fmt.Sprintf("http://apilayer.net/api/validate?access_key=YOUR_ACCESS_KEY&number=%s", safePhone)
-
-	url := fmt.Sprintf("https://api.github.com/repos/attic-labs/noms")
-
+	part1 := "https://api.github.com/repos/"
+	repo := "attic-labs/noms"
+	url := part1 + repo
 
 	// Build the request
 	req, err := http.NewRequest("GET", url, nil)
@@ -167,12 +160,4 @@ func main() {
 	}
 
 	fmt.Println("Stars = ", record.StargazersCount)
-
-/*
-	fmt.Println("Phone No. = ", record.InternationalFormat)
-	fmt.Println("Country   = ", record.CountryName)
-	fmt.Println("Location  = ", record.Location)
-	fmt.Println("Carrier   = ", record.Carrier)
-	fmt.Println("LineType  = ", record.LineType)
-*/
 }
