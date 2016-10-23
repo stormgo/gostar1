@@ -122,6 +122,7 @@ func main() {
 
 	part1 := "https://api.github.com/repos/"
 	repo := "attic-labs/noms"
+	repo = "coreos/etcd"
 	url := part1 + repo
 
 	// Build the request
